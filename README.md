@@ -1,14 +1,26 @@
 # 🍹 AWS Juice Shop Deployment via VPC (Private EC2 + Bastion + Docker)
+![AWS](https://img.shields.io/badge/platform-AWS-orange)
+![Docker](https://img.shields.io/badge/containerized-Docker-blue)
+![Status](https://img.shields.io/badge/status-Stable-brightgreen)
+![Security](https://img.shields.io/badge/security-Bastion--Hardened-lightgrey)
 
 ## 🌞 Overview
 This guide documents the full process of setting up a secure AWS environment to run OWASP Juice Shop from a **private EC2 instance**, accessed via a **public EC2 bastion host** using an **SSH tunnel**. The app runs in **Docker** on the private instance.
 
 ---
 
+## 🧱 Architecture Overview
+
+- 🟢 **Public Subnet**: Bastion EC2 (SSH only)
+- 🔵 **Private Subnet**: Juice Shop EC2 (runs in Docker)
+- 🌐 **SSH Tunnel**: Bastion ➜ Private EC2
+- 🐳 **Dockerized App**: Juice Shop running in a container[Optional]
+
 ## ✅ Prerequisites
 - AWS account
 - SSH client (e.g., PowerShell with OpenSSH, or Unix-based terminal)
 - `.pem` key file downloaded and stored securely (see next section to generate it)
+- 🐳 [Optional] **Docker Desktop** for local testing
 
 ---
 
